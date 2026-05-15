@@ -18,9 +18,9 @@ export default function Home() {
         query = query.limit(limit);
       }
 
-      const { data, err } = await query;
+      const { data, error: queryError } = await query;
 
-      if (err) throw err;
+      if (queryError) throw queryError;
       setBooks(data || []);
     } catch (err: any) {
       setError(err.message || "Failed to fetch data");
